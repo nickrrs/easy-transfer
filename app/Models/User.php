@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'document',
         'email',
@@ -44,6 +45,6 @@ class User extends Authenticatable
 
     public function wallet()
     {
-        return $this->hasOne(Wallet::class);
+        return $this->morphOne(Wallet::class, 'owner');
     }
 }

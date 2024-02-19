@@ -15,9 +15,15 @@ class Wallet extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'owner_id',
         'balance'
     ];
+
+    public function owner()
+    {
+        return $this->morphTo();
+    }
 
     public function user()
     {

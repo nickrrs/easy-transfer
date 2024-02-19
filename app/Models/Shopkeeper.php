@@ -15,12 +15,15 @@ class Shopkeeper extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'owner_id',
-        'balance'
+        'id',
+        'name',
+        'document',
+        'email',
+        'password'
     ];
-
+    
     public function wallet()
     {
-        return $this->belongsTo(Wallet::class);
+        return $this->morphOne(Wallet::class, 'owner');
     }
 }
