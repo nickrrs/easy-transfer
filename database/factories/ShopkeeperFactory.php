@@ -2,21 +2,23 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Shopkeeper;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Shopkeeper>
  */
-class UserFactory extends Factory
+class ShopkeeperFactory extends Factory
 {
+
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Shopkeeper::class;
+
     /**
      * Define the model's default state.
      *
@@ -28,7 +30,7 @@ class UserFactory extends Factory
             'id' => $this->faker->uuid,
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'document' => rand(11111111111, 99999999999),
+            'document' => rand(11111111111111, 99999999999999),
             'password' => Hash::make('hashedpassword')
         ];
     }
